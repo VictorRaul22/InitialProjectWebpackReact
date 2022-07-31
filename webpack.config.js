@@ -6,8 +6,8 @@ const CssMinimizerPugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
 const shouldAnalyze = process.argv.includes("--analyze");
-const devtool = 'source-map';
-const mode = 'production';
+const devtool = "source-map";
+const mode = "production";
 const plugins = [
   new HtmlWebpackPlugin({
     template: "./public/index.html",
@@ -19,13 +19,13 @@ const plugins = [
   }),
 ];
 function dev(config) {
-  config.devtool = 'eval-source-map';
-  config.mode = 'development';
+  config.devtool = "eval-source-map";
+  config.mode = "development";
   config.output = {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].js",
     publicPath: "/",
-  }
+  };
   // const devPlugins = [
   // ]
   // config.plugins.push(...devPlugins);
@@ -36,7 +36,7 @@ function dev(config) {
     },
     compress: true,
     port: 3000,
-  }
+  };
   config.optimization = {};
 }
 const config = {
@@ -71,11 +71,7 @@ const config = {
       // html
       {
         test: /\.html$/,
-        use: [
-          {
-            loader: "html-loader",
-          },
-        ],
+        loader: "html-loader",
       },
       // css
       {
@@ -112,4 +108,3 @@ module.exports = (env = null) => {
   // console.log(config)
   return config;
 };
-
